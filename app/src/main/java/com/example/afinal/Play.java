@@ -28,8 +28,11 @@ import android.view.ViewGroup;
 
 public class Play extends AppCompatActivity {
 
+    // Initialize Labels
     private TextView scoreLabel;
     private ImageView startLabel;
+
+    // Initialize Characters
     private ImageView stringhini;
 
     private ImageView gooderic;
@@ -46,6 +49,7 @@ public class Play extends AppCompatActivity {
     private ImageView sleepyeric;
     private ImageView sleepyeric2;
 
+    // Initialize Lives
     private ImageView Life1;
     private ImageView Life2;
     private ImageView Life3;
@@ -53,7 +57,7 @@ public class Play extends AppCompatActivity {
     private ImageView Death1;
     private ImageView Death2;
 
-    // Eric's Stuff
+    // Music
     ViewGroup mainLayout;
     MediaPlayer game;
     MediaPlayer ow;
@@ -62,7 +66,7 @@ public class Play extends AppCompatActivity {
     MediaPlayer good;
 
 
-    // Size
+    // Size of screen and Stringhini
     private int frameWidth;
     private int frameHeight;
     private int stringhiniSize;
@@ -136,7 +140,6 @@ public class Play extends AppCompatActivity {
     // Initalize Class
     private Handler handler = new Handler();
     private Timer timer = new Timer();
-    //private SoundPlay sound;
 
     // Status Check
     private boolean action_flg = false;
@@ -230,16 +233,15 @@ public class Play extends AppCompatActivity {
         Death2.setX(-1000);
         Death2.setY(0);
 
-        //center stringhini
+        // Center Stringhini
         stringhini.setX(getScreenWidth()/3);
         stringhini.setY(getScreenHeight()/3);
 
-        //Eric's Stuff
-
+        // Control Stringhini
         mainLayout = findViewById(R.id.frame);
         stringhini.setOnTouchListener(onTouchListener());
 
-
+        // Music
         game = MediaPlayer.create(getApplicationContext(), R.raw.gamemusic);
         ow = MediaPlayer.create(getApplicationContext(), R.raw.ow);
         impact = MediaPlayer.create(getApplicationContext(), R.raw.impact);
@@ -251,11 +253,12 @@ public class Play extends AppCompatActivity {
         game.start();
         game.setLooping(true);
 
+        // Hide Stringhini upon initialization
         stringhini.setVisibility(View.GONE);
 
     }
 
-    // Eric's Stuff
+    // Get screen dimenstions
     public static int getScreenWidth() {
         return Resources.getSystem().getDisplayMetrics().widthPixels;
     }
@@ -266,6 +269,8 @@ public class Play extends AppCompatActivity {
 
     private OnTouchListener onTouchListener() {
         return new OnTouchListener() {
+
+            // Movement
             PointF DownPT = new PointF(); // Record Mouse Position When Pressed Down
             PointF StartPT = new PointF(); // Record Start Position of 'img'
 
@@ -574,8 +579,9 @@ public class Play extends AppCompatActivity {
             case 0:
                 // Stop Timer!!
                 timer.cancel();
-                timer = null;
+                //timer = null;
                 game.stop();
+
                 // Show result
                 Intent intent = new Intent(getApplicationContext(), result.class);
                 intent.putExtra("SCORE", score);
@@ -720,9 +726,6 @@ public class Play extends AppCompatActivity {
         int smallhitbox = 125;
 
 
-        // 0 <= goodericCenterX <= stringhiniWidth
-        // stringhiniY <= goodericCenterY <= stringhiniY + stringhiniHeight
-
         if (reghitbox >= (Math.abs(goodericCenterX-stringhiniCenterX) + Math.abs(goodericCenterY-stringhiniCenterY)))
         {
             score += 10;
@@ -762,9 +765,6 @@ public class Play extends AppCompatActivity {
             goodericDU.setY(goodericDUY);
             impact.start();
         }
-
-
-
 
         if (smallhitbox >= (Math.abs(betterericCenterX-stringhiniCenterX) + Math.abs(betterericCenterY-stringhiniCenterY)))
         {
@@ -822,8 +822,6 @@ public class Play extends AppCompatActivity {
                 bettereric2.setY(bettereric2Y);
             }
         }
-
-
 
         if (reghitbox >= (Math.abs(sleepyericCenterX-stringhiniCenterX) + Math.abs(sleepyericCenterY-stringhiniCenterY)))
         {
@@ -887,8 +885,6 @@ public class Play extends AppCompatActivity {
             }
         }
 
-
-
         if (reghitbox >= (Math.abs(badericCenterX-stringhiniCenterX) + Math.abs(badericCenterY-stringhiniCenterY)))
         {
             LIVES -= 1;
@@ -942,10 +938,8 @@ public class Play extends AppCompatActivity {
         if(start_flg == false)
         {
             start_flg = true;
-            //sound.playGameMusic();
 
-
-            FrameLayout frame = (FrameLayout) findViewById(R.id.frame);
+            FrameLayout frame = findViewById(R.id.frame);
             frameHeight = frame.getHeight();
             frameWidth = frame.getWidth();
 
