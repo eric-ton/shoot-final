@@ -17,11 +17,6 @@ public class Credits extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_credits);
-
-        //sound.playMenuMusic();
-
-
-        //Initializes button to the parameters in result.xml
         finished = findViewById(R.id.back2);
     }
 
