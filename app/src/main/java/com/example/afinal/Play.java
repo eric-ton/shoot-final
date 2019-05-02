@@ -654,22 +654,12 @@ public class Play extends AppCompatActivity {
             red2 = 1;
         }
 
-        scoreLabel.setText("Score: " + score);
+        scoreLabel.setText("SCORE: " + score);
     }
 
     public void hitCheck()
 
     {
-        /*
-        System.out.println("reg X is " + goodericX);
-        System.out.println("reg Y is " + goodericY);
-        System.out.println("LR X is " + goodericLRX);
-        System.out.println("LR Y is " + goodericLRY);
-        System.out.println("UD X is " + goodericUDX);
-        System.out.println("UD Y is " + goodericUDY);
-        System.out.println("DU X is " + goodericDUX);
-        System.out.println("DU Y is " + goodericDUY);
-        */
 
         System.out.println("bad Y is " + sleepyeric2Y);
         System.out.println("bad X is " + sleepyeric2X);
