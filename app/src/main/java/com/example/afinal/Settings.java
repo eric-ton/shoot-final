@@ -70,11 +70,6 @@ public class Settings extends AppCompatActivity {
                     audioManager.adjustStreamVolume(AudioManager.STREAM_MUSIC,
                             AudioManager.ADJUST_MUTE, 0);
                     volumeSeekbar.setEnabled(false);
-                    /*volumeSeekbar.setMax(audioManager
-                            .getStreamMaxVolume(AudioManager.STREAM_MUSIC));
-                    volumeSeekbar.setProgress(audioManager
-                            .getStreamVolume(AudioManager.STREAM_MUSIC));
-                    */
 
                 } else {
 
@@ -83,10 +78,6 @@ public class Settings extends AppCompatActivity {
                             AudioManager.ADJUST_UNMUTE, 0);
                     volumeSeekbar.setEnabled(true);
 
-                    /*volumeSeekbar.setMax(audioManager
-                            .getStreamMaxVolume(AudioManager.STREAM_MUSIC));
-                    volumeSeekbar.setProgress(audioManager
-                            .getStreamVolume(AudioManager.STREAM_MUSIC));*/
                 }
                 break;
         }
@@ -94,20 +85,4 @@ public class Settings extends AppCompatActivity {
     public void goBack(View v) {
         finish();
     }
-
-   /* public void mutemusic(){
-        if (music.isChecked() == true) {
-            audioManager.adjustStreamVolume(AudioManager.STREAM_MUSIC,
-                    AudioManager.ADJUST_UNMUTE, 0);
-            volumeSeekbar.setMax(audioManager
-                    .getStreamMaxVolume(AudioManager.STREAM_MUSIC));
-            volumeSeekbar.setProgress(audioManager
-                    .getStreamVolume(AudioManager.STREAM_MUSIC));
-        }
-        else{
-            audioManager.adjustStreamVolume(AudioManager.STREAM_MUSIC,
-                    AudioManager.ADJUST_MUTE, 0);
-            volumeSeekbar.setEnabled(false);
-        }
-    }*/
 }
