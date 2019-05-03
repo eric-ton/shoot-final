@@ -50,11 +50,13 @@ public class result extends AppCompatActivity {
 
     public void tryAgain(View view) {
         lose.stop();
+        lose.release();
         startActivity(new Intent(getApplicationContext(), Play.class));
     }
 
     public void goHome(View view) {
         lose.stop();
+        lose.release();
 
         startActivity(new Intent(getApplicationContext(), MainActivity.class));
     }

@@ -20,7 +20,6 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 //Eric's Stuff
-import android.annotation.SuppressLint;
 import android.content.res.Resources;
 import android.graphics.PointF;
 import android.view.View.OnTouchListener;
@@ -146,7 +145,6 @@ public class Play extends AppCompatActivity {
     private boolean start_flg = false;
 
 
-    @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -271,7 +269,7 @@ public class Play extends AppCompatActivity {
         return new OnTouchListener() {
 
             // Movement
-            PointF DownPT = new PointF(); // Record Mouse Position When Pressed Down
+            PointF DownPT = new PointF(); // Mouse Position
             PointF StartPT = new PointF(); // Record Start Position of 'img'
 
             int width = getScreenWidth() - 40;
@@ -279,7 +277,6 @@ public class Play extends AppCompatActivity {
 
 
 
-            @SuppressLint("ClickableViewAccessibility")
             @Override
             public boolean onTouch(View view, MotionEvent event) {
 
@@ -581,6 +578,7 @@ public class Play extends AppCompatActivity {
                 timer.cancel();
                 //timer = null;
                 game.stop();
+                game.release();
 
                 // Show result
                 Intent intent = new Intent(getApplicationContext(), result.class);

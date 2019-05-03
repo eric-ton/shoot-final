@@ -35,6 +35,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         buttonCREDITS.setOnClickListener(this);
         buttonSETTINGS.setOnClickListener(this);
         buttonPLAY.setOnClickListener(this);
+
+
     }
 
     @Override
@@ -42,6 +44,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (v.getId()) {
             case R.id.buttonPLAY: {
                 menu.stop();
+                menu.release();
                 launchplayActivity();
                 break;
             }
@@ -98,4 +101,5 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         return super.dispatchKeyEvent(event);
     }
+
 }
